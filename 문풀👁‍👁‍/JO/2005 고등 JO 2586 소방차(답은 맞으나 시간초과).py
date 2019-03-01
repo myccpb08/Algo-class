@@ -1,13 +1,19 @@
 import sys
 sys.stdin = open('fire.txt','r')
 
-pump, car = map(int,input().split())
+pump, car = map(int,sys.stdin.readline().split())
 
-pumps = list(map(int,input().split()))
-cars = list(map(int,input().split()))
+pumps = list(map(int,sys.stdin.readline().split()))
+cars = list(map(int,sys.stdin.readline().split()))
 
 total = sorted(pumps + cars)
-total = sorted(list(set(total)))
+
+for i in total:
+    if total.count(i)==2:
+        trash = total.index(i)
+        total.remove(i)
+        total.remove(i)
+
 
 a=[[]for i in range(2*pump)]
 
