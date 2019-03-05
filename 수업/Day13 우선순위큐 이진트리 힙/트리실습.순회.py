@@ -61,6 +61,26 @@ print()
 print()
 
 
+# 레벨순회 . bfs?
+levelq=[]
+def levelroad(t):
+        global levelq
+        levelq.append(t)
+        while levelq!=[]:
+                start_node = levelq.pop(0)
+                print(start_node, end=' ')
+                if Left_Child[start_node] != 0:
+                        levelq.append(Left_Child[start_node])
+                if Right_Child[start_node] != 0:
+                        levelq.append(Right_Child[start_node])
+print("# 레벨순회 : 왼-오")
+levelroad(1)
+print()
+print()
+
+
+
+
 # 각 레벨
 print('# 레벨')
 for i in range(1,max(level)+1):
