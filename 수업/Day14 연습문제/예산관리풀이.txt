@@ -1,0 +1,23 @@
+import sys
+sys.stdin = open("input.txt", "r")
+
+def GetSome(now, sofar):
+    global ans, howmany
+    if sofar > money : 
+	return
+    if sofar > ans and now == 6:
+           ans = sofar
+           return
+    if now + 1 <=6:
+        GetSome(now+1, sofar)
+        GetSome(now+1, sofar+Budget[now])
+
+ans = 0
+money = int(input())  #40
+howmany = int(input())  #6  활동수
+Budget = list(map(int, input().split()))   #활동비 정보
+GetSome(0,0)    # getsome(현재누적활동수, 현재누적활동비)
+print(ans)
+
+
+넣을건지 안 넣을건지, 2의 n승
