@@ -1,28 +1,22 @@
 import sys
 sys.stdin=open('정사각형.txt','r')
 
-def money(x,chance,sample):  # x: 현재 탐색위치, chance: 시도횟수, sample: 현재 완성된 값
-    global mymin
-    if chance == tries:
-        #sample = int(''.join(list(map(str,sample))))
-        result = 0
-        for i in range(len(sample)):
-            result = result*10 + sample[i]
-        if result > mymin:
-            mymin=result
+for i in range(int(input())):
+    num,chance=input().split()
+    num=[num]  # 32888
+    for t in range(int(chance)): # 2번 돌린다면
+        result=set([])
+        for num_ in num:
+            for j in range(len(num_)-1):
+                for k in range(j+1,len(num_)):  # j번째와, k 번째 요소 교환
+                    if num_[j]==num_[k]:
+                        temp=num_
+                    else:
+                        temp=num_[:j]+num_[k]+num_[j+1:k]+num_[j]+num_[k+1:]
+                    result.add(temp)
+        num=list(result)
 
-    else:
-        now = sample[x]  # 바꾸고 싶은 값
-        cand = sample[x+1:]  # now 보다 뒤에 꺼
-        temp = 
+    print('#{} {}'.format(i+1,max(list(map(int,num)))))
 
 
 
-
-for t in range(int(input())):
-    num,tries = map(int,input().split())
-    num = list(map(int,str(num)))
-    mymin = -1
-    money(0,0,num)  #
-
-    print('#{} {}'.format(t+1,mymin))
